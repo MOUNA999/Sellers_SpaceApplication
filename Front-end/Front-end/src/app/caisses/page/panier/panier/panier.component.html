@@ -1,0 +1,94 @@
+
+<div class="card-body pb-2">
+
+        <div class="row">
+            <div class="col-xl-6">
+
+                <div class="mb-3">
+                    <label class="form-label">Code a barre </label>
+                    <div class="input-group" id="default-daterange">
+                        <input type="text"  class="form-control  btn-outline-theme" [(ngModel)]="lastBarcodeinput" placeholder="code a barre ">
+                        <button class="btn btn-success" (click)="addCodeBarre()">Ajouter</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+</div>
+<div class="pos-content-container h-100 p-4" data-scrollbar="true" data-height="100%">
+    <div class="row gx-4">
+        <table id="datatableDefault" class="table text-nowrap w-100" *ngIf="ligneCommande.length>0">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Code a barre</th>
+                    <th>Libelle</th>
+                    <th>Taille</th>
+                    <th>Couleur</th>
+                    <th>Prix</th>
+                    <th>Remise</th>
+                    <th>Quntité</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ligne of ligneCommande;let i=index">
+                    <td>{{i}}</td>
+                    <td>{{ligne.code_a_barre}}</td>
+                    <td>{{ligne.libelle}}</td>
+                    <td>{{ligne.taille}}</td>
+                    <td>{{ligne.couleur}}</td>
+                    <td>{{ligne.prix}} TND</td>
+                    <td>{{ligne.remise}} %</td>
+
+                    <td>
+                        <div class="d-flex">
+                        <a (click)="moins(ligne)" class="btn btn-outline-theme btn-sm"> <i class="fa fa-minus"></i> </a>
+
+                        <input type="text" class="form-control w-50px form-control-sm mx-2 bg-white bg-opacity-25 text-center" [(ngModel)]="ligne.qnt">
+                        <a (click)="plus(ligne)" class="btn btn-outline-theme btn-sm"><i class="fa fa-plus"></i></a>
+                        </div>
+                    </td>
+                    <td>{{ligne.total}} TND</td>
+                    <td>
+                        <button type="button" class="btn btn-outline-danger mb-1" (click)="delete(i)"><i class="far fa-lg fa-fw me-2 fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+
+        <div class="card border-theme bg-theme bg-opacity-25 mb-3" *ngIf="ligneCommande.length==0">
+            <div class="card-header border-theme fw-bold small text-inverse">Alert</div>
+            <div class="card-body">
+                <h5 class="card-title">Panier vide </h5>
+                <p class="card-text text-inverse text-opacity-75">Vouler vous ajouter des produits </p>
+            </div>
+            <div class="card-arrow">
+                <div class="card-arrow-top-left"></div>
+                <div class="card-arrow-top-right"></div>
+                <div class="card-arrow-bottom-left"></div>
+                <div class="card-arrow-bottom-right"></div>
+            </div>
+        </div>
+<!-- PanierComponent HTML -->
+<div class="card border-theme bg-theme bg-opacity-25 mb-3" *ngIf="barcodeNotFound">
+  <div class="card-header border-theme fw-bold small text-inverse">Alert</div>
+  <div class="card-body">
+    <h5 class="card-title">Code à barres introuvable</h5>
+    <p class="card-text text-inverse text-opacity-75">Veuillez réessayer</p>
+  </div>
+  <div class="card-arrow">
+    <div class="card-arrow-top-left"></div>
+    <div class="card-arrow-top-right"></div>
+    <div class="card-arrow-bottom-left"></div>
+    <div class="card-arrow-bottom-right"></div>
+  </div>
+</div>
+
+    </div>
+</div>

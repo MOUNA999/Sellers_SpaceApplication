@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+	<meta charset="utf-8">
+	<title>HUD | Login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+<!-- ================== BEGIN core-css ==================
+	<link href="src/assets/css/vendor.min.css" rel="stylesheet">
+<link href="assets/css/app.min.css" rel="stylesheet">
+	<!-- ================== END core-css ================== -->
+
+</head>
+<body class='pace-top'>
+	<!-- BEGIN #app -->
+	<div id="app" class="app app-full-height app-without-header">
+		<!-- BEGIN login -->
+		<div class="login">
+			<!-- BEGIN login-content -->
+			<div class="login-content">
+				<form (ngSubmit)="auth()" method="POST" name="login_form">
+					<h1 class="text-center">Sign In</h1>
+					<div class="text-inverse text-opacity-50 text-center mb-4">
+						For your protection, please verify your identity.
+					</div>
+					<div class="mb-3">
+              <label class="form-label">Email Address <span class="text-danger">*</span></label>
+            <input type="text" class="form-control form-control-lg bg-inverse bg-opacity-5" value="" placeholder="" [(ngModel)]="login" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="mb-3">
+            <div class="d-flex">
+              <label class="form-label">Password <span class="text-danger">*</span></label>
+              <a href="#" class="ms-auto text-inverse text-decoration-none text-opacity-50">Forgot password?</a>
+            </div>
+              <input type="password" class="form-control form-control-lg bg-inverse bg-opacity-5" value="" placeholder="" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+            </div>
+						
+					<div class="mb-3">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="customCheck1">
+							<label class="form-check-label" for="customCheck1">Remember me</label>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-outline-theme btn-lg d-block w-100 fw-500 mb-3">Sign In</button>
+           <div *ngIf="error">{{ error }}</div>
+           <br>
+					<div class="text-center text-inverse text-opacity-50">
+						Don't have an account yet? <a href="page_register.html">Sign up</a>.
+					</div>
+				</form>
+			</div>
+			<!-- END login-content -->
+		</div>
+		<!-- END login -->
+	</div>
+	<!-- END #app -->
+
+	<!-- ================== BEGIN core-js ================== -->
+	<script src="assets/js/vendor.min.js"></script>
+	<script src="assets/js/app.min.js"></script>
+	<!-- ================== END core-js ================== -->
+
+
+</body>

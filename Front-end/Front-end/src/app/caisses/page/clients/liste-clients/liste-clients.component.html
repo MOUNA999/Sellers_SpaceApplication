@@ -1,0 +1,63 @@
+
+<div class="card-body pb-2">
+
+        <div class="row">
+            <div class="col-xl-6">
+
+                <div class="mb-3">
+                    <label class="form-label">Code clients</label>
+                    <div class="input-group" id="default-daterange">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+         <div class="row">
+            <div class="col-xl-6">
+
+                <div class="mb-3">
+                    <label class="form-label">Code a barre </label>
+                    <div class="input-group" id="default-daterange">
+                        <input type="text"  class="form-control  btn-outline-theme"  placeholder="code a barre ">
+                        <button class="btn btn-success" >Ajouter</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+</div>
+
+<div class="pos-content-container h-100 p-4" data-scrollbar="true" data-height="100%">
+  <div class="row gx-4">
+    <div *ngFor="let client of clients" class="col-xxl-3 col-xl-4 col-lg-6 col-md-4 col-sm-6 pb-4">
+
+      <div class="card h-100">
+        <div class="card-body h-100 p-1">
+          <a href="#" class="pos-product" data-bs-toggle="modal" data-bs-target="#modalPosItem">
+            <div class="img" [style.background-image]="client.civilite === 'Monsieur' ? 'url(assets/img/user/homme3.png)' : 'url(assets/img/user/femelle.png)'" style="height:230px"></div>
+            <div class="info">
+              <div class="title">{{ client.nom }} {{ client.prenom }}</div>
+              <div class="desc">
+                Code client: {{ client.code_client }}<br>
+                Email: {{ client.email }}<br>
+                Téléphone 1: {{ client.tel1 }}<br>
+                Téléphone 2: {{ client.tel2 }}<br>
+                Ville: {{ client.ville }}<br>
+                Civilité: {{ client.civilite }}
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="card-arrow">
+          <div class="card-arrow-top-left"></div>
+          <div class="card-arrow-top-right"></div>
+          <div class="card-arrow-bottom-left"></div>
+          <div class="card-arrow-bottom-right"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
